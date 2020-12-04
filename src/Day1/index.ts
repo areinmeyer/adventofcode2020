@@ -4,7 +4,7 @@ import { readFileSync } from 'fs'
     Create a new array converting the strings to ints.
     A more robust version would make sure the parseInt function doesn't blow up
 */
-const readModuleList = (filename) => {
+const readModuleList = (filename: string) => {
     const rawInput = readFileSync(filename, 'utf-8')
     const inputAsArray = rawInput.split('\n')
     const iModules = inputAsArray.map(function (item) {
@@ -15,7 +15,7 @@ const readModuleList = (filename) => {
 }
 
 
-const find2020with2numbers = (numberArray) => {
+const find2020with2numbers = (numberArray: Array<number>) => {
     numberArray.forEach(element => {
         const clonedArray = new Set([...numberArray])
         clonedArray.delete(element);
@@ -30,7 +30,7 @@ const find2020with2numbers = (numberArray) => {
     });
 }
 
-const find2020with3numbers = (numberArray) => {
+const find2020with3numbers = (numberArray: Array<number>) => {
     numberArray.forEach(element => {
         const clonedArray = new Set([...numberArray])
         clonedArray.delete(element);
@@ -51,5 +51,5 @@ const find2020with3numbers = (numberArray) => {
     });
 }
 
-find2020with2numbers(readModuleList(`input.txt`));
-find2020with3numbers(readModuleList(`input.txt`));
+find2020with2numbers(readModuleList(`${__dirname}/input.txt`));
+find2020with3numbers(readModuleList(`${__dirname}/input.txt`));
