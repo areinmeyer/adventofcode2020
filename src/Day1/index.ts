@@ -1,17 +1,4 @@
-import { readFileSync } from "fs";
-/*
-    Read the puzzleInput as a string then split it into an array
-    Create a new array converting the strings to ints.
-    A more robust version would make sure the parseInt function doesn't blow up
-*/
-const readModuleList = (filename: string) => {
-  const rawInput = readFileSync(filename, "utf-8");
-  const inputAsArray = rawInput.split("\n");
-  const iModules = inputAsArray.map(function (item) {
-    return parseInt(item, 10);
-  });
-  return iModules;
-};
+import { readModuleListAsNumber } from '../utils'
 
 /**
  * Part 1
@@ -57,5 +44,5 @@ const find2020with3numbers = (numberArray: Array<number>) => {
   }
 };
 
-find2020with2numbers(readModuleList(`${__dirname}/input.txt`));
-find2020with3numbers(readModuleList(`${__dirname}/input.txt`));
+find2020with2numbers(readModuleListAsNumber(`${__dirname}/input.txt`));
+find2020with3numbers(readModuleListAsNumber(`${__dirname}/input.txt`));
