@@ -7,7 +7,7 @@ const defineGroups = (input: string[]) => {
     const row = input[i] || "";
     if (row.trim() === "") {
       current = current.trim().replace(/\s*/g, "");
-      groups.push(current.trim());
+      groups.push(current);
       current = "";
     } else {
       current = current.concat(" ", row);
